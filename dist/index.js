@@ -9942,6 +9942,7 @@ module.exports = ({
   reviewers,
   bests = {},
   disableLinks = false,
+  disablePictures = false,
   displayCharts = false,
   limit = null,
 }) => {
@@ -9961,7 +9962,7 @@ module.exports = ({
     const { login } = author || {};
     const chartsData = getChartsData({ index, contributions, displayCharts });
 
-    const avatar = getImage({ author, displayCharts });
+    const avatar = disablePictures ? '' : getImage({ author, displayCharts });
     const timeVal = printStat(stats, 'timeToReview', durationToString);
     const timeStr = addReviewsTimeLink(timeVal, disableLinks, urls.timeToReview);
     const reviewsStr = printStat(stats, 'totalReviews', noParse);
@@ -10303,6 +10304,7 @@ const run = async (params) => {
     periodLength,
     displayCharts,
     disableLinks,
+    disablePictures,
     pullRequestId,
     limit,
   } = params;
@@ -10329,6 +10331,7 @@ const run = async (params) => {
     limit,
     sortBy,
     disableLinks,
+    disablePictures,
     periodLength,
     displayCharts,
   });
@@ -10445,6 +10448,7 @@ const getParams = () => {
     periodLength: getPeriod(),
     displayCharts: parseBoolean(core.getInput('charts')),
     disableLinks: parseBoolean(core.getInput('disable-links')),
+    disablePictures: parseBoolean(core.getInput('disable-pictures')),
     pullRequestId: getPrId(),
     limit: parseInt(core.getInput('limit'), 10),
   };

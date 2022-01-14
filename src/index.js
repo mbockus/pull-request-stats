@@ -35,6 +35,7 @@ const getParams = () => {
     periodLength: getPeriod(),
     displayCharts: parseBoolean(core.getInput('charts')),
     disableLinks: parseBoolean(core.getInput('disable-links')),
+    disablePictures: parseBoolean(core.getInput('disable-pictures')),
     pullRequestId: getPrId(),
     limit: parseInt(core.getInput('limit'), 10),
   };

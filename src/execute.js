@@ -23,6 +23,7 @@ const run = async (params) => {
     periodLength,
     displayCharts,
     disableLinks,
+    disablePictures,
     pullRequestId,
     limit,
   } = params;
@@ -49,6 +50,7 @@ const run = async (params) => {
     limit,
     sortBy,
     disableLinks,
+    disablePictures,
     periodLength,
     displayCharts,
   });

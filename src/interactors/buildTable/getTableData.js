@@ -57,6 +57,7 @@ module.exports = ({
   reviewers,
   bests = {},
   disableLinks = false,
+  disablePictures = false,
   displayCharts = false,
   limit = null,
 }) => {
@@ -76,7 +77,7 @@ module.exports = ({
     const { login } = author || {};
     const chartsData = getChartsData({ index, contributions, displayCharts });
 
-    const avatar = getImage({ author, displayCharts });
+    const avatar = disablePictures ? '' : getImage({ author, displayCharts });
     const timeVal = printStat(stats, 'timeToReview', durationToString);
     const timeStr = addReviewsTimeLink(timeVal, disableLinks, urls.timeToReview);
     const reviewsStr = printStat(stats, 'totalReviews', noParse);
