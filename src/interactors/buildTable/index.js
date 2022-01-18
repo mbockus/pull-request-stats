@@ -12,6 +12,7 @@ module.exports = (reviewers, options = {}) => {
     sortBy,
     periodLength,
     disableLinks,
+    disablePictures,
     displayCharts,
     limit,
   } = options;
@@ -30,6 +31,7 @@ module.exports = (reviewers, options = {}) => {
     const tableData = getTableData({
       bests,
       disableLinks,
+      disablePictures,
       displayCharts,
       limit,
       reviewers: populatedReviewers,
